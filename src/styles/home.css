@@ -1,0 +1,65 @@
+/* src/styles/home.css */
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.75rem;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  

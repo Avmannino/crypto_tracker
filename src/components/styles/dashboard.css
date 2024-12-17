@@ -1,0 +1,65 @@
+/* General container styles */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header styles */
+  .dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-header p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Content section styles */
+  .dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .dashboard-content .holdings-summary,
+  .dashboard-content .transaction-history,
+  .dashboard-content .add-transaction {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-content .holdings-summary h2,
+  .dashboard-content .transaction-history h2,
+  .dashboard-content .add-transaction h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .dashboard-content .holdings-summary p,
+  .dashboard-content .transaction-history p,
+  .dashboard-content .add-transaction p {
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .dashboard-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
