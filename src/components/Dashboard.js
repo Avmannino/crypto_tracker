@@ -5,7 +5,7 @@ import './styles/dashboard.css'; // Import the dashboard styles
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [cryptoPrices, setCryptoPrices] = useState({});
+  const [cryptoData, setCryptoData] = useState({});
   const items = ['BTC', 'ETH', 'SOL', 'XRP', 'AAVE', 'DOGE', 'SHB', 'ADA', 'AVAX', 'LINK', 'BCH', 'UNI', 'XLM', 'LTC', 'PEPE', 'ETC', 'WIF', 'COMP'];
 
   // Function to fetch real-time data from CoinCap API
@@ -17,14 +17,17 @@ export default function Dashboard() {
 
       const prices = data.data.reduce((acc, coin) => {
         if (items.includes(coin.symbol)) {
-          acc[coin.symbol] = coin.priceUsd;
+          acc[coin.symbol] = {
+            price: coin.priceUsd,
+            changePercent24Hr: coin.changePercent24Hr,
+          };
         }
         return acc;
       }, {});
 
-      console.log('Filtered Prices:', prices); // Debugging: Log the filtered prices
+      console.log('Filtered Prices:', prices); 
 
-      setCryptoPrices(prevPrices => ({ ...prevPrices, ...prices }));
+      setCryptoData(prevData => ({ ...prevData, ...prices }));
     } catch (error) {
       console.error('Error fetching crypto data:', error);
     }
@@ -32,17 +35,17 @@ export default function Dashboard() {
 
   // Fetch data on component mount and every 5 seconds
   useEffect(() => {
-    fetchCryptoPrices(); // Initial fetch
-    const interval = setInterval(fetchCryptoPrices, 5000); // Update every 5 seconds
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, []); // Empty dependency array ensures this effect runs only once when the component mounts
+    fetchCryptoPrices(); 
+    const interval = setInterval(fetchCryptoPrices, 3000); // Update every 3 seconds
+    return () => clearInterval(interval);
+  }, []); 
 
   // Filter the list based on the search query
   const filteredItems = items.filter(item =>
     item.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Function to format the price as $xxx,xxx.xx
+
   const formatPrice = (price) => {
     if (price) {
       return '$' + parseFloat(price).toLocaleString('en-US', { 
@@ -51,6 +54,12 @@ export default function Dashboard() {
       });
     }
     return '$0.00';
+  };
+
+
+  const formatChange = (change) => {
+    const parsedChange = parseFloat(change);
+    return parsedChange.toFixed(2) + '%';
   };
 
   return (
@@ -65,20 +74,30 @@ export default function Dashboard() {
         <aside className="scrollable-list">
           <input
             type="text"
-            placeholder="Search for a market"
+            placeholder="🔍 Search for a market"
             className="search-bar"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
           />
           {filteredItems.length > 0 ? (
-            filteredItems.map((item, index) => (
-              <div key={index} className="list-item">
-                <span>{item}</span>
-                <span className="crypto-price">
-                  {formatPrice(cryptoPrices[item])}
-                </span>
-              </div>
-            ))
+            filteredItems.map((item, index) => {
+              const data = cryptoData[item] || {};
+              const price = data.price ? formatPrice(data.price) : '$0.00';
+              const change = data.changePercent24Hr ? formatChange(data.changePercent24Hr) : '0.00%';
+              const changeColor = parseFloat(data.changePercent24Hr) > 0 ? 'green' : 'red';
+
+              return (
+                <div key={index} className="list-item">
+                  <span>{item}</span>
+                  <span className="crypto-price">
+                    {price}
+                    <span style={{ color: changeColor, marginLeft: '10px', fontSize: '15px',  }}>
+                      {change}
+                    </span>
+                  </span>
+                </div>
+              );
+            })
           ) : (
             <p className="no-results">No results found</p>
           )}

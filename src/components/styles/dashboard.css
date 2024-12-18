@@ -9,7 +9,7 @@
   padding: 20px;
   width: 100%;
   height: 100vh;
-  background-color: #0a0b0d;
+  background-color: #161a22;
   color: white;
   font-family: 'Tableau';
 }
@@ -39,30 +39,33 @@
 
 /* Scrollable list styles */
 .scrollable-list {
-  width: 270px;
-  max-height: 550px; /* Set a maximum height for scrolling */
+  width: 230px;
+  max-height: 500px; /* Set a maximum height for scrolling */
   overflow-y: scroll;
-  overflow-x: scroll;
-  background: #7ec700;
+  background: #9db81a;
   padding: 20px;
   border-radius: 8px;
+  border: 2px solid rgb(0, 173, 226);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
   position: relative;
-  left: 7vw;
-  bottom: 2vh;;
+  left: 9vw;
+  bottom: 1vh;;
 }
 
 /* Search bar styles */
 .search-bar {
-  width: calc(100% - 20px);
+  width: calc(100% - 60px);
+  height: 8px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 8px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 16px;
   font-size: 0.8rem;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  background-color: black;
+  background-color: rgb(93, 93, 93);
+  color: white;
 }
 
 .search-bar:focus {
@@ -71,25 +74,59 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
+.search-bar::placeholder {
+  color: #ffffff; /* Replace with your desired color */
+  font-style: italic; /* Optional: add styling like italic */
+  font-size: 12.5px;;
+}
+
+
 /* List items */
 .scrollable-list .list-item {
   display: flex;
   justify-content: space-between; /* Space out the ticker and price */
-  padding: 15px;
-  margin-bottom: 5px;
+  padding: 8px;
+  margin-bottom: 4px;
   background: #4a4a4a;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   text-align: left;
-  font-weight: bold;
+  font-weight: bolder;
+  align-items: center;
+  font-size: 18px;
   color: #ffffff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.scrollable-list::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.scrollable-list::-webkit-scrollbar-track {
+  background: #f4f4f4; /* Background of the scrollbar track */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.scrollable-list::-webkit-scrollbar-thumb:hover {
+  background: #ffea00;
+}
+
+
 /* Style for the crypto price */
 .crypto-price {
-  font-weight: normal;
-  color: #7ec700;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 12px;
+  color: #ffffff;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  align-items: end;
 }
 
 /* Hover effect */
@@ -102,7 +139,7 @@
 .no-results {
   text-align: center;
   font-size: 1rem;
-  color: #999;
+  color: #ffffff;
   padding: 20px;
 }
 
@@ -140,8 +177,8 @@
 }
 
 .transaction-btn {
-  background-color: #7ec700;
-  color: white;
+  background-color: #9db81a;
+  color: rgb(39, 39, 39);
   padding: 5px 20px;;
   font-size: 0.8rem;
   max-width: 108px;
@@ -165,6 +202,22 @@
 button:hover {
   background-color: #0056b3;
 }
+
+.crypto-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Adjust alignment as needed */
+  margin-left: 10px; /* Space between the symbol and the data */
+}
+
+.crypto-price {
+  font-size: 1rem; /* Adjust font size as needed */
+}
+
+.crypto-change {
+  font-size: 0.9rem; /* Slightly smaller for percentage */
+}
+
 
 @font-face {
   font-family: 'Tableau';
