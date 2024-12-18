@@ -1,9 +1,9 @@
-import Dashboard from '../../components/Dashboard';  // Import the Dashboard component
+import Dashboard from '../../components/Dashboard';  
 
 export default function DashboardPage() {
   return (
     <div>
-      <Dashboard />  {/* Render the Dashboard component here */}
+      <Dashboard />  
     </div>
   );
 }

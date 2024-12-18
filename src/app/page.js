@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import '../styles/home.css';  // Import the home.css for styling
+import '../styles/home.css';  
 
 export default function HomePage() {
   return (
@@ -7,11 +7,11 @@ export default function HomePage() {
       <h1>Welcome to the Crypto Portfolio Tracker</h1>
       <p>Track your investments in real time.</p>
 
-      {/* Link to /dashboard */}
+
       <div>
         <h2>Your Dashboard</h2>
         <Link href="/dashboard">
-          <button>Go to Dashboard</button> {/* Clicking this button will navigate to /dashboard */}
+          <button>Go to Dashboard</button> 
         </Link>
       </div>
     </main>
