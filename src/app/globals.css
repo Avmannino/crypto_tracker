@@ -10,11 +10,16 @@
 
 /* Set body background and font */
 body {
-  font-family: 'Arial', sans-serif;
   background-color: #000000;
   color: #333;
   line-height: 1.6;
 }
+
+@font-face {
+  font-family: 'Tableau';
+  src: url('/fonts/Tableau.ttf') format('truetype');
+}
+
 
 /* Set the styles for the main container */
 main {

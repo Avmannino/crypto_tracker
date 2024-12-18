@@ -88,7 +88,7 @@ export default function Dashboard() {
             <h2>Recent Transactions</h2>
             <button className='transaction-btn'>Add Transaction</button>
             <ul>
-              <li>No transactions yet.</li>
+              <li className='transactions-list'>No transactions yet.</li>
             </ul>
           </div>
 

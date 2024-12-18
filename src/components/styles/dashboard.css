@@ -11,6 +11,7 @@
   height: 100vh;
   background-color: rgb(22, 44, 52);
   color: white;
+  font-family: 'Tableau';
 }
 
 /* Header styles */
@@ -156,7 +157,17 @@
   margin-top: -5px;
 }
 
+.transactions-list {
+  font-family: Tableau;;
+  font-size: 20px;;
+}
+
 button:hover {
   background-color: #0056b3;
+}
+
+@font-face {
+  font-family: 'Tableau';
+  src: url('/fonts/Tableau.ttf') format('truetype');
 }
 

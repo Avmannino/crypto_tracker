@@ -5,9 +5,14 @@ main {
     max-width: 100%;
     height: 100vh;
     margin: 0 auto;
-    font-family: 'Arial', sans-serif;
     background-color: black;
   }
+
+  @font-face {
+    font-family: 'Tableau';
+    src: url('/fonts/Tableau.ttf') format('truetype');
+  }
+  
   
   h1 {
     font-size: 3rem;
