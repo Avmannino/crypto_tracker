@@ -8,7 +8,6 @@ export default function Dashboard() {
   const [cryptoData, setCryptoData] = useState({});
   const items = ['BTC', 'ETH', 'SOL', 'XRP', 'AAVE', 'DOGE', 'SHIB', 'ADA', 'AVAX', 'LINK', 'BCH', 'UNI', 'XLM', 'LTC', 'ETC', 'NEAR', 'HBAR', 'FTM', 'ALGO', 'THETA', 'RUNE', 'INJ', 'MATIC', 'DOT', 'COMP'];
 
-
   const fetchCryptoPrices = async () => {
     try {
       const response = await fetch('https://api.coincap.io/v2/assets');
@@ -34,13 +33,11 @@ export default function Dashboard() {
     }
   };
 
-
   useEffect(() => {
     fetchCryptoPrices();
-    const interval = setInterval(fetchCryptoPrices, 2500); // Update every 3 seconds
+    const interval = setInterval(fetchCryptoPrices, 2500); // Update every 2.5 seconds
     return () => clearInterval(interval);
   }, []);
-
 
   const filteredItems = items.filter(item =>
     item.toLowerCase().includes(searchQuery.toLowerCase())
@@ -76,6 +73,29 @@ export default function Dashboard() {
     }
   };
 
+  // Make sure cryptoData[item] exists before trying to access its properties
+  const renderCryptoData = (item) => {
+    const data = cryptoData[item] || {};
+    const price = data.price ? formatPrice(data.price) : '$0.00';
+    const change = data.changePercent24Hr ? formatChange(data.changePercent24Hr) : '0.00%';
+    const volume = data.volumeUsd24Hr ? formatVolume(data.volumeUsd24Hr) : '0.00';
+    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? 'green' : 'red';
+
+    return (
+      <div key={item} className="list-item">
+        <span>{item}</span>
+        <span className="crypto-price">
+          {price}
+          <span style={{ color: changeColor, marginLeft: '20px', fontSize: '13.5px' }}>
+            {change}
+          </span>
+        </span>
+        <span className="crypto-volume">
+          Vol: {volume}
+        </span>
+      </div>
+    );
+  };
 
   return (
     <main className="dashboard">
@@ -94,28 +114,7 @@ export default function Dashboard() {
             onChange={e => setSearchQuery(e.target.value)}
           />
           {filteredItems.length > 0 ? (
-            filteredItems.map((item, index) => {
-              const data = cryptoData[item] || {};
-              const price = data.price ? formatPrice(data.price) : '$0.00';
-              const change = data.changePercent24Hr ? formatChange(data.changePercent24Hr) : '0.00%';
-              const volume = data.volumeUsd24Hr ? formatVolume(data.volumeUsd24Hr) : '0.00';
-              const changeColor = parseFloat(data.changePercent24Hr) > 0 ? 'green' : 'red';
-
-              return (
-                <div key={index} className="list-item">
-                  <span>{item}</span>
-                  <span className="crypto-price">
-                    {price}
-                    <span style={{ color: changeColor, marginLeft: '20px', fontSize: '13.5px' }}>
-                      {change}
-                    </span>
-                  </span>
-                  <span className="crypto-volume">
-                    Vol: {volume}
-                  </span>
-                </div>
-              );
-            })
+            filteredItems.map(renderCryptoData)
           ) : (
             <p className="no-results">No results found</p>
           )}
@@ -123,18 +122,18 @@ export default function Dashboard() {
 
         <div className="transaction-history">
           <h2>Recent Transactions</h2>
-          <button className='transaction-btn'>Add Transaction</button>
+          <button className="transaction-btn">Add Transaction</button>
           <ul>
-            <li className='transactions-list'>No transactions yet.</li>
+            <li className="transactions-list">No transactions yet.</li>
           </ul>
         </div>
 
-   
         <section className="dashboard-content">
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
             <p>Total Value: $0.00</p>
             <p>24h Change: 0%</p>
+            {/* Add Candlestick Chart Component here */}
           </div>
         </section>
       </div>
