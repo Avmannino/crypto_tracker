@@ -98,12 +98,7 @@ export default function Dashboard() {
   };
 
   return (
-    <main className="dashboard">
-      <header className="dashboard-header">
-        <h1>Crypto Portfolio Dashboard</h1>
-        <p>View your holdings, track performance, and manage transactions.</p>
-      </header>
-
+    <main className="dashboard-page">
       <div className="dashboard-layout">
         <aside className="scrollable-list">
           <input
@@ -120,19 +115,24 @@ export default function Dashboard() {
           )}
         </aside>
 
-        <div className="transaction-history">
+        <div className='monthly-recap'>
+          <p className='today'>Today</p>
+          <p className='week'>7 Days</p>
+          <p className='month'>30 Days</p>
+        </div>
+
+        {/* <div className="transaction-history">
           <h2>Recent Transactions</h2>
           <button className="transaction-btn">Add Transaction</button>
           <ul>
             <li className="transactions-list">No transactions yet.</li>
           </ul>
-        </div>
+        </div> */}
 
         <section className="dashboard-content">
+        <h1 className='current-balance'>Current Balance: </h1>
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
-            <p>Total Value: $0.00</p>
-            <p>24h Change: 0%</p>
             {/* Add Candlestick Chart Component here */}
           </div>
         </section>

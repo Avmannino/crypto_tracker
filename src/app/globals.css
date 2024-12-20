@@ -1,4 +1,4 @@
-/* Reset default browser styling */
+/* Reset default browser styling
 *,
 *::before,
 *::after {
@@ -8,7 +8,6 @@
   background-color: black;
 }
 
-/* Set body background and font */
 body {
   background-color: #000000;
   color: #333;
@@ -21,7 +20,7 @@ body {
 }
 
 
-/* Set the styles for the main container */
+
 main {
   width: 100%;
   max-width: 1200px;
@@ -29,7 +28,7 @@ main {
   padding: 2rem;
 }
 
-/* Add some padding to headings and paragraphs */
+
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   color: #222;
@@ -39,7 +38,7 @@ p {
   margin-bottom: 1.5rem;
 }
 
-/* Links styling */
+
 a {
   color: #3498db;
   text-decoration: none;
@@ -49,7 +48,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Basic button styling */
 button {
   padding: 0.8rem 1.5rem;
   background-color: #3498db;
@@ -64,14 +62,14 @@ button:hover {
   background-color: #2980b9;
 }
 
-/* Flexbox utility */
+
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Center text utility */
+
 .text-center {
   text-align: center;
-}
+} */
