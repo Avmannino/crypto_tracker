@@ -47,7 +47,7 @@
 
 .scrollable-list {
   width: 250px;
-  max-height: 650px;
+  max-height: 600px;
   overflow-y: scroll;
   background: #9eb81a00;
   padding: 20px;
@@ -56,8 +56,8 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-right: 20px;
   position: relative;
-  left: 5vw;
-  top: 14vh;
+  left: 10vw;
+  bottom: 23.5vh;
 }
 
 .search-bar {
@@ -108,17 +108,17 @@
 }
 
 .scrollable-list::-webkit-scrollbar-track {
-  background: #7a0000;
+  background: #1a1a1a;
   border-radius: 4px;
 }
 
 .scrollable-list::-webkit-scrollbar-thumb {
-  background: #ffffff;
+  background: #b19e43;
   border-radius: 4px;
 }
 
 .scrollable-list::-webkit-scrollbar-thumb:hover {
-  background: #000000;
+  background: #ffe45e;
 }
 
 .crypto-price {
@@ -265,3 +265,57 @@ button:hover {
   font-family: 'Tableau';
   src: url('/fonts/Tableau.ttf') format('truetype');
 }
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 40vh;
+  right: 45vw;
+  gap: 55px; /* Space between buttons */
+
+}
+
+.stacked-button {
+  display: block;
+  width: 110px;
+  padding: 20px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #ffffff;
+  border: 2px solid #f0d85a;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Individual button backgrounds */
+.home-button {
+  background-color: #1a1a1a00; 
+}
+
+.holdings-button {
+  background-color: #1a1a1a00; 
+}
+
+.analytics-button {
+  background-color: #1a1a1a00; 
+}
+
+.charts-button {
+  background-color: #1a1a1a00; 
+}
+
+.settings-button {
+  background-color: #1a1a1a00; 
+}
+
+/* Hover styles for all buttons */
+.stacked-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 3px 6px rgba(240, 216, 90, 0.5);
+  color: #f0d85a;
+}
+
+
