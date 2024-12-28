@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import './styles/dashboard.css';
-import { ColorType, createChart } from 'lightweight-charts';
 import Navbar from './Navbar';
 import VerticalButtonStack from './Navbar';
 
@@ -11,6 +10,8 @@ export default function Dashboard() {
   const [cryptoData, setCryptoData] = useState({});
   const [selectedItem, setSelectedItem] = useState(null);
   const [candlestickData, setCandlestickData] = useState([]);
+  const [isListOpen, setIsListOpen] = useState(true);
+
   const items = ['BTC', 'ETH', 'SOL', 'XRP', 'AAVE', 'DOGE', 'SHIB', 'ADA', 'AVAX', 'LINK', 'BCH', 'UNI', 'XLM', 'LTC', 'ETC', 'NEAR', 'HBAR', 'FTM', 'ALGO', 'THETA', 'RUNE', 'INJ', 'MATIC', 'DOT', 'COMP'];
 
   const coinIdMapping = {
@@ -50,12 +51,11 @@ export default function Dashboard() {
           acc[coin.symbol] = {
             price: coin.priceUsd,
             changePercent24Hr: coin.changePercent24Hr,
-            volumeUsd24Hr: coin.volumeUsd24Hr,
           };
         }
         return acc;
       }, {});
-      setCryptoData(prevData => ({ ...prevData, ...prices }));
+      setCryptoData((prevData) => ({ ...prevData, ...prices }));
     } catch (error) {
       console.error('Error fetching crypto data:', error);
     }
@@ -100,43 +100,36 @@ export default function Dashboard() {
     }
   }, [selectedItem]);
 
-  const filteredItems = items.filter(item =>
+  const filteredItems = items.filter((item) =>
     item.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const formatPrice = (price) => price ? '$' + parseFloat(price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 3 }) : '$0.00';
+  const formatPrice = (price) =>
+    price
+      ? '$' +
+        parseFloat(price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      : '$0.00';
+
   const formatChange = (change) => `${parseFloat(change).toFixed(2)}%`;
-  const formatVolume = (volume) => {
-    if (!volume) return '0';
-    const value = parseFloat(volume);
-    if (value >= 1e9) return `${(value / 1e9).toFixed(1)}B`;
-    if (value >= 1e6) return `${(value / 1e6).toFixed(1)}M`;
-    if (value >= 1e3) return `${(value / 1e3).toFixed(1)}K`;
-    return `${value.toFixed(1)}`;
-  };
 
   const renderCryptoData = (item) => {
     const data = cryptoData[item] || {};
     const price = data.price ? formatPrice(data.price) : '$0.00';
     const change = data.changePercent24Hr ? formatChange(data.changePercent24Hr) : '0.00%';
-    const volume = data.volumeUsd24Hr ? formatVolume(data.volumeUsd24Hr) : '0.00';
-    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? 'green' : 'red';
+    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? '#158900b7;' : '#bb0000b7';
 
     return (
-      <div key={item} className="list-item" onClick={() => setSelectedItem(item)}>
-        <span>{item}</span>
-        <span className="crypto-price">
+      <div key={item} style={{minWidth:'110px'}} className="price-box" onClick={() => setSelectedItem(item)}>
+        <span className='coin-label' style={{marginBottom: '6px', marginTop: '-10px'}}>{item}</span>
+        <span style={{ color: '#ffffffe6'}} className="crypto-price">
           {price}
-          <span style={{ color: changeColor, marginLeft: '20px', fontSize: '13.5px' }}>
-            {change}
-          </span>
-        </span>
-        <span className="crypto-volume">
-          Vol: {volume}
+          <span style={{ color: changeColor, fontSize: '80%', fontWeight: 'normal' }}>{change}</span>
         </span>
       </div>
     );
   };
+
+  const toggleList = () => setIsListOpen(!isListOpen);
 
   return (
     <main className="dashboard-page">
@@ -145,18 +138,27 @@ export default function Dashboard() {
       </div>
 
       <div className="dashboard-layout">
-        <aside className="scrollable-list">
-          <input
-            type="text"
-            placeholder="🔍 Search for a market"
-            className="search-bar"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          />
-          {filteredItems.length > 0 ? (
-            filteredItems.map(renderCryptoData)
-          ) : (
-            <p className="no-results">No results found</p>
+        <aside className={`scrollable-list ${isListOpen ? 'open' : 'closed'}`}>
+          <button onClick={toggleList} className="toggle-button">
+            {isListOpen ? '➖ Prices' : '➕Prices'}
+          </button>
+          {isListOpen && (
+            <>
+              {/* <input
+                type="text"
+                placeholder="   🔍 Search for an asset"
+                className="search-bar"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              /> */}
+              <div className="horizontal-scroll">
+                {filteredItems.length > 0 ? (
+                  filteredItems.map(renderCryptoData)
+                ) : (
+                  <p className="no-results">No results found</p>
+                )}
+              </div>
+            </>
           )}
         </aside>
 
@@ -167,13 +169,15 @@ export default function Dashboard() {
         </div>
 
         <section className="dashboard-content">
-          <h1 className="current-balance">Current Balance: </h1>
+          <div className='balance-info'>
+            <h1 className="current-balance">Current Balance: </h1>
+          </div>
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
             {selectedItem && candlestickData.length > 0 ? (
-              <Candlestick data={candlestickData} />
+              <div className="chart-container">{/* Replace with Chart Component */}</div>
             ) : (
-              <p>Select a cryptocurrency to view the chart.</p>
+              <p className='chart-placeholder'>Select an asset to view the chart.</p>
             )}
           </div>
         </section>
