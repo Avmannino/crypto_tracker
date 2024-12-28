@@ -120,10 +120,10 @@ export default function Dashboard() {
 
     return (
       <div key={item} style={{minWidth:'110px'}} className="price-box" onClick={() => setSelectedItem(item)}>
-        <span className='coin-label' style={{marginBottom: '6px', marginTop: '-10px'}}>{item}</span>
+        <span className='coin-label' style={{marginBottom: '3px', marginTop: '-10px'}}>{item}</span>
         <span style={{ color: '#ffffffe6'}} className="crypto-price">
           {price}
-          <span style={{ color: changeColor, fontSize: '80%', fontWeight: 'normal' }}>{change}</span>
+          <span style={{ color: changeColor, fontSize: '90%', fontWeight: 'normal' }}>{change}</span>
         </span>
       </div>
     );
@@ -133,35 +133,36 @@ export default function Dashboard() {
 
   return (
     <main className="dashboard-page">
+      <img src="/images/cryptbulllogo.png" alt="Dashboard Logo" className="dashboard-logo" />
+      <aside className={`scrollable-list ${isListOpen ? 'open' : 'closed'}`}>
+        <button onClick={toggleList} className="toggle-button">
+          {isListOpen ? '➖' : '➕'}
+        </button>
+        {isListOpen && (
+          <>
+            <input
+              type="text"
+              placeholder="   🔍 Search for an asset"
+              className="search-bar"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <div className="horizontal-scroll">
+              {filteredItems.length > 0 ? (
+                filteredItems.map(renderCryptoData)
+              ) : (
+                <p className="no-results">No results found</p>
+              )}
+            </div>
+          </>
+        )}
+      </aside>
+
       <div className="side-navbar">
         <VerticalButtonStack />
       </div>
 
       <div className="dashboard-layout">
-        <aside className={`scrollable-list ${isListOpen ? 'open' : 'closed'}`}>
-          <button onClick={toggleList} className="toggle-button">
-            {isListOpen ? '➖ Prices' : '➕Prices'}
-          </button>
-          {isListOpen && (
-            <>
-              {/* <input
-                type="text"
-                placeholder="   🔍 Search for an asset"
-                className="search-bar"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              /> */}
-              <div className="horizontal-scroll">
-                {filteredItems.length > 0 ? (
-                  filteredItems.map(renderCryptoData)
-                ) : (
-                  <p className="no-results">No results found</p>
-                )}
-              </div>
-            </>
-          )}
-        </aside>
-
         <div className="monthly-recap">
           <p className="today">Today</p>
           <p className="week">7 Days</p>
