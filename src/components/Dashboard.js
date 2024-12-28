@@ -116,14 +116,14 @@ export default function Dashboard() {
     const data = cryptoData[item] || {};
     const price = data.price ? formatPrice(data.price) : '$0.00';
     const change = data.changePercent24Hr ? formatChange(data.changePercent24Hr) : '0.00%';
-    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? '#158900b7;' : '#bb0000b7';
+    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? '#158900b7;' : '#d30000b7';
 
     return (
-      <div key={item} style={{minWidth:'110px'}} className="price-box" onClick={() => setSelectedItem(item)}>
-        <span className='coin-label' style={{marginBottom: '3px', marginTop: '-10px'}}>{item}</span>
-        <span style={{ color: '#ffffffe6'}} className="crypto-price">
+      <div key={item} style={{ minWidth: '110px' }} className="price-box" onClick={() => setSelectedItem(item)}>
+        <span className="coin-label" style={{ marginBottom: '5px', marginTop: '-5px' }}>{item}</span>
+        <span style={{ color: '#ffffffe6', marginTop: '-1px', marginBottom: '0px' }} className="crypto-price">
           {price}
-          <span style={{ color: changeColor, fontSize: '90%', fontWeight: 'normal' }}>{change}</span>
+          <span style={{ color: changeColor, fontSize: '90%', fontWeight: 'normal', marginTop: '-4px', marginBottom: '-3px' }}>{change}</span>
         </span>
       </div>
     );
@@ -134,27 +134,22 @@ export default function Dashboard() {
   return (
     <main className="dashboard-page">
       <img src="/images/cryptbulllogo.png" alt="Dashboard Logo" className="dashboard-logo" />
+      <input
+        type="text"
+        placeholder="   🔍 Search for an asset"
+        className="search-bar"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <aside className={`scrollable-list ${isListOpen ? 'open' : 'closed'}`}>
         <button onClick={toggleList} className="toggle-button">
           {isListOpen ? '➖' : '➕'}
         </button>
         {isListOpen && (
-          <>
-            <input
-              type="text"
-              placeholder="   🔍 Search for an asset"
-              className="search-bar"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <div className="horizontal-scroll">
-              {filteredItems.length > 0 ? (
-                filteredItems.map(renderCryptoData)
-              ) : (
-                <p className="no-results">No results found</p>
-              )}
-            </div>
-          </>
+          <div className="horizontal-scroll">
+            {filteredItems.length > 0 ? filteredItems.map(renderCryptoData) : null}
+            {filteredItems.length > 0 ? filteredItems.map(renderCryptoData) : null}
+          </div>
         )}
       </aside>
 
@@ -170,15 +165,15 @@ export default function Dashboard() {
         </div>
 
         <section className="dashboard-content">
-          <div className='balance-info'>
+          <div className="balance-info">
             <h1 className="current-balance">Current Balance: </h1>
           </div>
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
             {selectedItem && candlestickData.length > 0 ? (
-              <div className="chart-container">{/* Replace with Chart Component */}</div>
+              <div className="chart-container">{/* Chart Component */}</div>
             ) : (
-              <p className='chart-placeholder'>Select an asset to view the chart.</p>
+              <p className="chart-placeholder">Select an asset to view the chart.</p>
             )}
           </div>
         </section>
