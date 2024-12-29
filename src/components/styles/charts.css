@@ -1,0 +1,16 @@
+.chart-container {
+    width: 31.5%; 
+    height: auto; 
+    margin: 0 auto; 
+    padding: 10px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #1a1a1a; 
+    border-radius: 22px; 
+    box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.314);
+    position: relative;
+    top: 27%;
+    left: 33.5%;
+  }
+  

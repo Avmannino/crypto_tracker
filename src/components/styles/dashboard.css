@@ -255,17 +255,17 @@
 
 .holdings-summary h2 {
   color: #d8dbe7;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bolder;
-  margin-top: 0px;
+  margin-top: -5px;
   margin-bottom: 10px;
   margin-left: 30px;
-  text-align: start;
+  text-align: center;
   background-color: #1a1a1a00;
 }
 
 .crypto-table {
-  width: 45%;
+  width: 33%;
   border-collapse: collapse;
   margin-top: 20px;
   font-size: 14px;
@@ -273,15 +273,15 @@
   color: #ffffff;
   background-color: #1a1a1a;
   border: 1px solid #b19e43;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
-  top: 5%;
-  left: 26%;
+  top: 2.5%;
+  left: 0.5%;
 }
 
 .crypto-table th, .crypto-table td {
-  padding: 12px;
+  padding: 5px;
   border: 1px solid #b19e43;
 }
 
@@ -324,19 +324,19 @@
   border: 1px solid #b19e43;
   border-radius: 22px;
   position: relative;
-  top: 0%;
-  left: 35.5%;
+  top: 7.5%;
+  left: 0.5%;
 }
 
 .current-balance {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #d8dbe7;
   margin-top: 50px;
   margin-left: -200px;
   position: relative;
   top: -3.5vh;
-  left: 29%;
+  left: 50%;
   z-index: 9999;
   max-width: 300px;
   background-color: #1a1a1a00;
@@ -349,8 +349,8 @@
   font-size: 12px;
   position: relative;
   text-align: center;
-  left: 23%;
-  top: 7%;
+  left: 26%;
+  top: 18%;
   z-index: 9999;
   background-color: #1a1a1a00;
   color: #d8dbe7;
@@ -367,30 +367,23 @@
   width: 80%; 
   margin: 10px auto; 
   position: relative;
-  top: 15px;
+  top: 35px;
 }
 
 .chart-placeholder {
-  color: red;
+  width: 25.5%;
+  height: auto;
+  padding: 16px;
+  border-radius: 12px;
+  color: #483389;
+  font-weight: bold;
+  border: 1px solid #b19e43;
   background-color: #1a1a1a00;
   position: relative;
-  top: 25vh;
-  right: 30vw;
+  top: 35vh;
+  left: 59vw;
 }
 
-.chart-container {
-  width: 50%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  z-index: 9999 !important;
-}
 
 button:hover {
   background-color: #0056b3;

@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import './styles/charts.css';
 
-export default function ApexChart({ symbol }) {
+
+export default function ApexChart({ symbol, height = 355, width = 505 }) {
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchCryptoCompareCandlestickData = async (symbol, interval = 'histoday') => {
     try {
-      console.log('Fetching candlestick data for symbol:', symbol); // Debugging
+      console.log('Fetching candlestick data for symbol:', symbol);
 
-      // CryptoCompare API endpoint
       const response = await fetch(
         `https://min-api.cryptocompare.com/data/v2/${interval}?fsym=${symbol}&tsym=USD&limit=30`
       );
       const { Data } = await response.json();
 
-      console.log('API Response:', Data); // Debugging
+      console.log('API Response:', Data);
 
       if (!Data || !Data.Data || Data.Data.length === 0) {
         console.warn('No data returned from API for', symbol);
@@ -24,13 +25,12 @@ export default function ApexChart({ symbol }) {
         return;
       }
 
-      // Format data for ApexCharts
       const formattedData = Data.Data.map((entry) => ({
         x: entry.time * 1000, // Convert UNIX timestamp to milliseconds
         y: [entry.open, entry.high, entry.low, entry.close], // OHLC values
       }));
 
-      console.log('Formatted Chart Data:', formattedData); // Debugging
+      console.log('Formatted Chart Data:', formattedData);
 
       setChartData(formattedData);
       setLoading(false);
@@ -51,7 +51,6 @@ export default function ApexChart({ symbol }) {
   const options = {
     chart: {
       type: 'candlestick',
-      height: 350,
     },
     title: {
       text: `${symbol} Chart`,
@@ -74,11 +73,11 @@ export default function ApexChart({ symbol }) {
   ];
 
   return (
-    <div>
+    <div className="chart-container">
       {loading ? (
         <p>Loading chart...</p>
       ) : chartData.length > 0 ? (
-        <Chart options={options} series={series} type="candlestick" height={350} />
+        <Chart options={options} series={series} type="candlestick" height={height} width={width} />
       ) : (
         <p>No candlestick data available for {symbol}.</p>
       )}
