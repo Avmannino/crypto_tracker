@@ -11,8 +11,9 @@ export default function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [candlestickData, setCandlestickData] = useState([]);
   const [isListOpen, setIsListOpen] = useState(true);
+  const [holdings, setHoldings] = useState([]); 
 
-  const items = ['BTC', 'ETH', 'SOL', 'XRP', 'AAVE', 'DOGE', 'SHIB', 'ADA', 'AVAX', 'LINK', 'BCH', 'UNI', 'XLM', 'LTC', 'ETC', 'NEAR', 'HBAR', 'FTM', 'ALGO', 'THETA', 'RUNE', 'INJ', 'MATIC', 'DOT', 'COMP'];
+  const items = ['BTC', 'ETH', 'SOL', 'XRP', 'AAVE', 'DOGE', 'SHIB', 'ADA', 'AVAX', 'LINK', 'BCH', 'UNI', 'XLM', 'LTC', 'ETC', 'NEAR', 'HBAR', 'FTM', 'ALGO', 'THETA', 'RUNE', 'INJ', 'MATIC', 'DOT', 'COMP', 'TRX', 'XMR', 'OKB', 'RAY', 'EOS', 'HNT', 'FLOW', 'GALA', 'QNT', 'IOTA', 'BSV', 'AR', 'MKR'];
 
   const coinIdMapping = {
     BTC: 'bitcoin',
@@ -40,6 +41,19 @@ export default function Dashboard() {
     MATIC: 'polygon',
     DOT: 'polkadot',
     COMP: 'compound',
+    TRX: 'tron',
+    XMR: 'monero',
+    OKB: 'okb',
+    RAY: 'raydium',
+    EOS: 'eos',
+    HNT: 'helium',
+    FLOW: 'flow',
+    GALA: 'gala',
+    QNT: 'quant',
+    IOTA: 'iota',
+    BSV: 'bitcoin sv',
+    AR: 'arweave',
+    MKR: 'maker',
   };
 
   const fetchCryptoPrices = async () => {
@@ -116,7 +130,7 @@ export default function Dashboard() {
     const data = cryptoData[item] || {};
     const price = data.price ? formatPrice(data.price) : '$0.00';
     const change = data.changePercent24Hr ? formatChange(data.changePercent24Hr) : '0.00%';
-    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? '#158900b7;' : '#d30000b7';
+    const changeColor = parseFloat(data.changePercent24Hr) > 0 ? '#189f00d6' : '#d30000b7';
 
     return (
       <div key={item} style={{ minWidth: '110px' }} className="price-box" onClick={() => setSelectedItem(item)}>
@@ -136,7 +150,7 @@ export default function Dashboard() {
       <img src="/images/cryptbulllogo.png" alt="Dashboard Logo" className="dashboard-logo" />
       <input
         type="text"
-        placeholder="   🔍 Search for an asset"
+        placeholder="  🔍 Search for an asset"
         className="search-bar"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
@@ -158,18 +172,31 @@ export default function Dashboard() {
       </div>
 
       <div className="dashboard-layout">
-        <div className="monthly-recap">
-          <p className="today">Today</p>
-          <p className="week">7 Days</p>
-          <p className="month">30 Days</p>
-        </div>
-
         <section className="dashboard-content">
-          <div className="balance-info">
-            <h1 className="current-balance">Current Balance: </h1>
-          </div>
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
+            <div className='balance-info'>
+              <p className="current-balance">Balance: </p>
+              <hr className="styled-line-break" />
+                <div className="monthly-recap">
+                  <p className="today">24h</p>
+                  <p className="week">7d</p>
+                  <p className="month">30d</p>
+                </div>
+            </div>
+            <table className="crypto-table">
+              <thead>
+                <tr>
+                  <th>Coin</th>
+                  <th>Average Cost Basis</th>
+                  <th>Holdings</th>
+                  <th>PNL</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
             {selectedItem && candlestickData.length > 0 ? (
               <div className="chart-container">{/* Chart Component */}</div>
             ) : (

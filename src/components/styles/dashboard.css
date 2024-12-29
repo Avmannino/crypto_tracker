@@ -20,9 +20,9 @@
 
 .dashboard-logo {
   position: absolute;
-  top: 0%;
-  left: 1.5%;
-  width: 180px;
+  top: -1.5%;
+  left: 0%;
+  width: 210px;
   height: auto;
 }
 
@@ -80,24 +80,32 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: absolute;
   left: 14.5vw;
-  top: 4.5vh;
-  transition: max-height 0.8s ease, padding 0.8s ease;
+  top: 4vh;
   overflow: hidden;
   z-index: 9999;
+  transition: height 0.5s ease, padding 0.5s ease;
 }
 
 .scrollable-list.open {
-  height: 12%;
+  height: 8.5%;
   width: 78%;
-  padding: 16px;
-  z-index: 9999;
+  padding: 15.5px;
 }
 
 .scrollable-list.closed {
-  height: 11%;
-  width: 1500px;
+  height: 0%;
+  animation: wrapUp 5s ease forwards; 
   padding: 0;
   border: none;
+}
+
+@keyframes wrapUp {
+  from {
+    width: 78%;
+  }
+  to {
+    width: 0;
+  }
 }
 
 .horizontal-scroll {
@@ -114,14 +122,14 @@
   position: relative;
   scrollbar-width:auto; 
   scrollbar-color: #ffd500 #1a1a1a; 
-  animation: loopScroll 20s linear infinite; 
+  animation: loopScroll 40s linear infinite; 
 }
 @keyframes loopScroll {
   0% {
     transform: translateX(0); 
   }
   100% {
-    transform: translateX(-200%); 
+    transform: translateX(-300%); 
   }
 }
 
@@ -184,7 +192,7 @@
   width: 7.5%;
   position: absolute;
   left: 2vw;
-  top: 21vh;
+  top: 23vh;
   min-height: 10px !important;
   max-height: 3px !important;
   padding: 9px;
@@ -207,7 +215,7 @@
 
 .search-bar::placeholder {
   color: #a4a4a4;
-  font-style: bold;
+  font-style: italic;
   font-size: 0.75rem;
 }
 
@@ -216,24 +224,6 @@
   font-size: 1rem;
   color: #ffffff;
   padding: 20px;
-}
-
-.monthly-recap {
-  display: flex;
-  flex-direction: row;
-  gap: 55px;
-  font-size: 20px;
-  position: absolute;
-  left: 78vw;
-  top: 27.8vh;
-  z-index: 9999;
-  background-color: #1a1a1a00;
-  color: rgba(128, 128, 128, 0.938);
-  font-weight: bolder;
-}
-
-.monthly-recap p {
-  background-color: #1a1a1a00;
 }
 
 .dashboard-content {
@@ -250,7 +240,7 @@
 }
 
 .holdings-summary {
-  background-color: #1a1a1a5e;
+  background-color: #ffffff12;
   padding: 20px;
   border-radius: 30px;
   text-align: center;
@@ -265,32 +255,121 @@
 
 .holdings-summary h2 {
   color: rgb(150, 150, 150);
-  font-size: 30px;
-  margin-top: 18px;
+  font-size: 16px;
+  font-weight: bolder;
+  margin-top: 0px;
   margin-bottom: 10px;
+  margin-left: 30px;
+  text-align: start;
   background-color: #1a1a1a00;
+}
+
+.crypto-table {
+  width: 45%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1a1a1a;
+  border: 1px solid #b19e43;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  top: 20%;
+  left: 26%;
+}
+
+.crypto-table th, .crypto-table td {
+  padding: 12px;
+  border: 1px solid #b19e43;
+}
+
+.crypto-table th {
+  background-color: #b19e43;
+  color: #000;
+  font-weight: bold;
+}
+
+.crypto-table td {
+  background-color: #000;
+  color: #ffffff;
+}
+
+.crypto-table tr:hover {
+  background-color: #333;
+}
+
+.crypto-table button {
+  background-color: #b19e43;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.crypto-table button:hover {
+  background-color: #a68937;
+  color: #fff;
 }
 
 .balance-info {
   display: flexbox;
-  width: 30%;
+  width: 25%;
+  height: 25%;
   align-self: center;
-  border: 2px solid #b19e43;
+  border: 1px solid #b19e43;
+  border-radius: 22px;
   position: relative;
-  top: 20%;
+  top: 0%;
+  left: 35.5%;
 }
 
 .current-balance {
-  font-size: 20px;
-  color: rgba(128, 128, 128, 0.938);
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.713);
   margin-top: 50px;
+  margin-left: -200px;
   position: relative;
-  top: -10vh;
-  left: 28vw;
+  top: -3.5vh;
+  left: 29%;
   z-index: 9999;
   max-width: 300px;
   background-color: #1a1a1a00;
 }
+
+.monthly-recap {
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  left: 23%;
+  top: 7%;
+  z-index: 9999;
+  background-color: #1a1a1a00;
+  color: rgba(255, 255, 255, 0.713);
+  font-weight: 500;
+}
+
+.monthly-recap p {
+  background-color: #1a1a1a00;
+}
+
+.styled-line-break {
+  border: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.067); 
+  width: 80%; 
+  margin: 10px auto; 
+  position: relative;
+  top: 15px;
+}
+
+
 
 .chart-placeholder {
   color: red;
