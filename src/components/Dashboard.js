@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Script from 'next/script';
 import './styles/dashboard.css';
 import Navbar from './Navbar';
 import VerticalButtonStack from './Navbar';
@@ -53,7 +54,7 @@ export default function Dashboard() {
     FLOW: 'FLOW',
     GALA: 'GALA',
     QNT: 'QNT',
-    IOTA: 'MIOTA', 
+    IOTA: 'MIOTA',
     BSV: 'BSV',
     AR: 'AR',
     MKR: 'MKR',
@@ -156,6 +157,20 @@ export default function Dashboard() {
 
       <div className="dashboard-layout">
         <section className="dashboard-content">
+          {/* <div id="cr-widget-marquee"
+            data-coins="bitcoin,ethereum,eos,ripple,litecoin,monero,dogecoin,tron,avalanche,cardano,chainlink,shiba-inu,solana,toncoin,aave,uniswap,gala,flow,compound"
+            data-theme="dark"
+            data-show-symbol="true"
+            data-show-icon="true"
+            data-show-period-change="true"
+            data-period-change="24H"
+            data-api-url="https://api.cryptorank.io/v0"
+          >
+            <a href="https://cryptorank.io"></a>
+          </div>
+
+          <Script src="https://cryptorank.io/widget/marquee.js" strategy="lazyOnload" /> */}
+
           <div className="balance-info">
             <p className="current-balance">Balance: $</p>
             <hr className="styled-line-break" />

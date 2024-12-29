@@ -7,7 +7,7 @@ const VerticalButtonStack = () => {
       <a href="/" className="stacked-button home-button">Home</a>
       <a href="/holdings" className="stacked-button holdings-button">Holdings</a>
       <a href="/analytics" className="stacked-button analytics-button">Analytics</a>
-      <a href="/charts" className="stacked-button charts-button">Charts</a>
+      <a href="/dashboard/heatmaps" className="stacked-button charts-button">Heatmaps</a>
       <a href="/settings" className="stacked-button settings-button">Settings</a>
     </div>
   );
