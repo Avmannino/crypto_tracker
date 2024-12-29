@@ -254,7 +254,7 @@
 }
 
 .holdings-summary h2 {
-  color: rgb(150, 150, 150);
+  color: #d8dbe7;
   font-size: 16px;
   font-weight: bolder;
   margin-top: 0px;
@@ -276,7 +276,7 @@
   border-radius: 6px;
   overflow: hidden;
   position: relative;
-  top: 20%;
+  top: 5%;
   left: 26%;
 }
 
@@ -316,6 +316,7 @@
 }
 
 .balance-info {
+  background-color: rgba(0, 0, 0, 0.629);
   display: flexbox;
   width: 25%;
   height: 25%;
@@ -330,7 +331,7 @@
 .current-balance {
   font-size: 16px;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.713);
+  color: #d8dbe7;
   margin-top: 50px;
   margin-left: -200px;
   position: relative;
@@ -352,7 +353,7 @@
   top: 7%;
   z-index: 9999;
   background-color: #1a1a1a00;
-  color: rgba(255, 255, 255, 0.713);
+  color: #d8dbe7;
   font-weight: 500;
 }
 
@@ -362,14 +363,12 @@
 
 .styled-line-break {
   border: none;
-  border-top: 2px solid rgba(255, 255, 255, 0.067); 
+  border-top: 2px solid #b19f4337; 
   width: 80%; 
   margin: 10px auto; 
   position: relative;
   top: 15px;
 }
-
-
 
 .chart-placeholder {
   color: red;
