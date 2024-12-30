@@ -1,16 +1,54 @@
 .chart-container {
-    width: 31.5%; 
+    width: 51.5%; 
     height: auto; 
     margin: 0 auto; 
     padding: 10px; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    background-color: #1a1a1a; 
     border-radius: 22px; 
     box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.314);
     position: relative;
-    top: -14%;
-    left: 33.5%;
+
   }
+
+  .tradingview-widget-container {
+    position: absolute;
+    top: 8.5vh;
+    right: 1vw;
+    background-color: #5d5321 !important;
+    padding: 4px;
+    border-radius: 10px;
+    overflow: scroll;
+  }
+  
+
+  .tradingview-widget-container__widget {
+    border-radius: 18px;
+  }
+
+  .tradingview-list-container {
+    width: 460px;
+ 
+    margin: 0 auto;
+    background-color: #907100; /* Match the widget's background */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 8vh;
+  }
+
+  .blue-text {
+    color: #4cafef;
+    text-decoration: none;
+  }
+  
+  .tradingview-widget-copyright {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888;
+  }
+  
   

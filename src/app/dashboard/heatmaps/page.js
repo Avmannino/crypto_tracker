@@ -1,3 +1,5 @@
+'use client';
+
 import Heatmaps from '../../../components/Heatmaps';
 import '../../../styles/heatmaps.css';
 

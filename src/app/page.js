@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import '../styles/home.css';
+import TradingViewList from '../components/TradingViewList'; 
 
 export default function HomePage() {
   useEffect(() => {
@@ -12,20 +13,24 @@ export default function HomePage() {
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script); 
+      document.body.removeChild(script);
     };
   }, []);
 
   return (
-    <main>
-      <h1>Welcome to the Crypto Portfolio Tracker</h1>
-      <p>Track your investments in real time.</p>
+    // 1) Add the "background-homepage" class here
+    <main className="background-homepage">
+      <h1 className='coinsight-header'>CoinSight</h1>
 
       <div>
-        <h2>Your Dashboard</h2>
         <Link href="/dashboard">
           <button>Go to Dashboard</button>
         </Link>
+      </div>
+
+      <div>
+        {/* Render the TradingViewList Component */}
+        <TradingViewList />
       </div>
     </main>
   );

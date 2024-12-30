@@ -80,7 +80,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: absolute;
   left: 14.5vw;
-  top: 4vh;
+  top: 2vh;
   overflow: hidden;
   z-index: 9999;
   transition: height 0.5s ease, padding 0.5s ease;
@@ -244,10 +244,10 @@
   padding: 20px;
   border-radius: 30px;
   text-align: center;
-  height: 75%;
+  height: 78%;
   width: 85%;
   position: absolute;
-  bottom: 3.5%;
+  bottom: 2.5%;
   left: 11%;
   display: flexbox;
   align-self: center;
@@ -264,57 +264,6 @@
   background-color: #1a1a1a00;
 }
 
-.crypto-table {
-  width: 33%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 14px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #1a1a1a;
-  border: 1px solid #b19e43;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  top: 55.5%;
-  left: 67%;
-}
-
-.crypto-table th, .crypto-table td {
-  padding: 5px;
-  border: 1px solid #b19e43;
-}
-
-.crypto-table th {
-  background-color: #b19e43;
-  color: #000;
-  font-weight: bold;
-}
-
-.crypto-table td {
-  background-color: #000;
-  color: #ffffff;
-}
-
-.crypto-table tr:hover {
-  background-color: #333;
-}
-
-.crypto-table button {
-  background-color: #b19e43;
-  color: #000;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.crypto-table button:hover {
-  background-color: #a68937;
-  color: #fff;
-}
-
 .balance-info {
   background-color: rgba(0, 0, 0, 0.629);
   display: flexbox;
@@ -324,7 +273,7 @@
   border: 1px solid #b19e43;
   border-radius: 22px;
   position: relative;
-  top: 7.5%;
+  top: 10%;
   left: 0.5%;
 }
 
@@ -371,17 +320,17 @@
 }
 
 .chart-placeholder {
-  width: 25.5%;
-  height: auto;
+  width: 35%;
+  height: 450px;
   padding: 16px;
   border-radius: 12px;
   color: #483389;
   font-weight: bold;
   border: 1px solid #b19e43;
   background-color: #1a1a1a00;
-  position: relative;
-  top: 35vh;
-  left: 59vw;
+  position: absolute;
+  top: 15vh;
+  left: 15vw;
 }
 
 

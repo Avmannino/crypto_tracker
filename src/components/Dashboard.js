@@ -4,20 +4,19 @@ import { useState, useEffect } from 'react';
 import './styles/dashboard.css';
 import Navbar from './Navbar';
 import VerticalButtonStack from './Navbar';
-import TradingViewWidget from './TradingViewWidget';
-
+import TradingViewWidget from './TradingViewChart';
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [cryptoData, setCryptoData] = useState({});
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState('BTC'); // Default to 'BTC'
   const [isListOpen, setIsListOpen] = useState(true);
 
   const items = [
     'BTC', 'ETH', 'SOL', 'XRP', 'AAVE', 'DOGE', 'SHIB', 'ADA', 'AVAX',
     'LINK', 'BCH', 'UNI', 'XLM', 'LTC', 'ETC', 'NEAR', 'HBAR', 'FTM',
-    'ALGO', 'THETA', 'RUNE', 'INJ', 'MATIC', 'DOT', 'COMP', 'TRX',
-    'XMR', 'OKB', 'EOS', 'FLOW', 'GALA', 'QNT', 'IOTA', 'BSV', 'AR', 'MKR',
+    'ALGO', 'THETA', 'RUNE', 'INJ', 'DOT', 'COMP', 'TRX', 
+    'EOS', 'FLOW', 'GALA', 'QNT', 'IOTA', 'AR', 'MKR',
   ];
 
   const coinIdMapping = {
@@ -43,18 +42,14 @@ export default function Dashboard() {
     THETA: 'BINANCE:THETAUSDT',
     RUNE: 'BINANCE:RUNEUSDT',
     INJ: 'BINANCE:INJUSDT',
-    MATIC: 'BINANCE:MATICUSDT',
     DOT: 'BINANCE:DOTUSDT',
     COMP: 'BINANCE:COMPUSDT',
     TRX: 'BINANCE:TRXUSDT',
-    XMR: 'BINANCE:XMRUSDT',
-    OKB: 'BINANCE:OKBUSDT',
     EOS: 'BINANCE:EOSUSDT',
     FLOW: 'BINANCE:FLOWUSDT',
     GALA: 'BINANCE:GALAUSDT',
     QNT: 'BINANCE:QNTUSDT',
     IOTA: 'BINANCE:IOTAUSDT',
-    BSV: 'BINANCE:BSVUSDT',
     AR: 'BINANCE:ARUSDT',
     MKR: 'BINANCE:MKRUSDT',
   };
@@ -159,34 +154,15 @@ export default function Dashboard() {
           <div className="balance-info">
             <p className="current-balance">Balance: $</p>
             <hr className="styled-line-break" />
+            <div className="monthly-recap">
+              <p className="today">24h</p>
+              <p className="week">7d</p>
+              <p className="month">30d</p>
+            </div>
           </div>
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
-            <table className="crypto-table">
-              <thead>
-                <tr>
-                  <th>Coin</th>
-                  <th>Average Cost Basis</th>
-                  <th>Holdings</th>
-                  <th>PNL</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>BTC</td>
-                  <td>$20,000</td>
-                  <td>0.5</td>
-                  <td>$2,500</td>
-                  <td>Edit</td>
-                </tr>
-              </tbody>
-            </table>
-            {selectedItem ? (
-                <TradingViewWidget symbol={coinIdMapping[selectedItem]} />
-            ) : (
-              <p className="chart-placeholder">Select an asset to view the chart.</p>
-            )}
+            <TradingViewWidget symbol={coinIdMapping[selectedItem]} />
           </div>
         </section>
       </div>
