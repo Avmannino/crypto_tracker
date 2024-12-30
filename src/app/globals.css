@@ -1,4 +1,4 @@
-/* Reset default browser styling
+Reset default browser styling
 *,
 *::before,
 *::after {
@@ -72,4 +72,8 @@ button:hover {
 
 .text-center {
   text-align: center;
-} */
+}
+
+.nextjs-portal {
+  display: none;
+}

@@ -1,19 +1,29 @@
-import ScriptLoader from '../components/ScriptLoader';
+import Dashboard from "@/components/Dashboard";
+import React from "react";
 
 export const metadata = {
   title: 'Crypto Portfolio Tracker',
   description: 'Track your cryptocurrency holdings and transactions in real time.',
 };
 
-export default function RootLayout({ children }) {
+const noOverlayWorkaroundScript = `
+  window.addEventListener('error', event => {
+    event.stopImmediatePropagation()
+  })
+
+  window.addEventListener('unhandledrejection', event => {
+    event.stopImmediatePropagation()
+  })
+`
+
+export default function RootLayout() {
   return (
     <html lang="en">
       <head>
-        {/* Additional metadata */}
+      {process.env.NODE_ENV !== 'production' && <script dangerouslySetInnerHTML={{ __html: noOverlayWorkaroundScript }} />}
       </head>
       <body>
-        {children}
-        <ScriptLoader /> {/* Load the script using a client component */}
+      <Dashboard />
       </body>
     </html>
   );
