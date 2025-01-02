@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import '../styles/home.css';
 import TradingViewList from '../components/TradingViewList'; 
+import TradingViewTicker from '@/components/TradingViewTicker';
 
 export default function HomePage() {
   useEffect(() => {
@@ -22,13 +23,17 @@ export default function HomePage() {
     <main className="background-homepage">
       <h1 className='coinsight-header'>CoinSight</h1>
 
+      <div className='home-ticker'>
+        <TradingViewTicker />
+      </div>
+
       <div>
         <Link href="/dashboard">
           <button>Go to Dashboard</button>
         </Link>
       </div>
 
-      <div>
+      <div className='home-list'>
         {/* Render the TradingViewList Component */}
         <TradingViewList />
       </div>

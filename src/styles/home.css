@@ -10,6 +10,14 @@ main {
   background-color: black;
 }
 
+@font-face {
+  font-family: 'Switzer'; /* Name of the font */
+  src: url('/fonts/Switzer.otf') format('opentype'); /* Path to the .otf file */
+  font-weight: normal; /* Specify weight if needed (normal, bold, etc.) */
+  font-style: normal;  /* Specify style if needed (normal, italic, etc.) */
+}
+
+
 
 /* .background-homepage {
 
@@ -21,6 +29,16 @@ main {
   padding: 0;
 } */
 
+.home-ticker {
+  position: relative;
+  bottom: 2vh;
+  right: 2.5vw;
+}
+
+.home-list {
+  position: relative;
+  top: 4vh;
+}
 
 
 h1 {
@@ -39,9 +57,11 @@ p {
 
 .coinsight-header {
   font-size: 2.3rem;
+  font-family: Switzer;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 0.2rem;
+  position: relative;
+  top: 15vh;
 }
 
 button {
