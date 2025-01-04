@@ -29,6 +29,13 @@ main {
   padding: 0;
 }
 
+.background-screen {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.766);
+  position: fixed;
+}
+
 .home-ticker {
   position: relative;
   bottom: 2vh;

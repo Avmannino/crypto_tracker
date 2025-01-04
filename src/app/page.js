@@ -22,30 +22,32 @@ export default function HomePage() {
 
   return (
     <main className="background-homepage">
-      <div className="landing-logo-container animate__animated animate__flipInX">
-        <img 
-          src="/images/landing_logo.png" 
-          alt="Landing Logo" 
-          className="landing-logo"
-        />
-      </div>
+      <div className='background-screen'>
+        <div className="landing-logo-container animate__animated animate__flipInX">
+          <img
+            src="/images/landing_logo.png"
+            alt="Landing Logo"
+            className="landing-logo"
+          />
+        </div>
 
-      <div className="home-ticker">
-        <TradingViewTicker />
-      </div>
+        <div className="home-ticker">
+          <TradingViewTicker />
+        </div>
 
-      <div className='landing-buttons'>
-        <Link href="/dashboard">
-          <button className='dash-btn animate__animated animate__flipInX'>Dashboard</button>
-        </Link>
-        <Link href="/">
-          <button className='learn-btn animate__animated animate__flipInX'>Learn More</button>
-        </Link>
-      </div>
+        <div className='landing-buttons'>
+          <Link href="/dashboard">
+            <button className='dash-btn animate__animated animate__flipInX'>Dashboard</button>
+          </Link>
+          <Link href="/">
+            <button className='learn-btn animate__animated animate__flipInX'>Learn More</button>
+          </Link>
+        </div>
 
-      <div className="home-list">
-        {/* Render the TradingViewList Component */}
-        {/* <TradingViewList /> */}
+        <div className="home-list">
+          {/* Render the TradingViewList Component */}
+          {/* <TradingViewList /> */}
+        </div>
       </div>
     </main>
   );
