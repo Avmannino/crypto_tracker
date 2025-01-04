@@ -9,7 +9,6 @@
     border-radius: 22px; 
     box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.314);
     position: relative;
-
   }
 
   .tradingview-widget-container {
@@ -29,18 +28,21 @@
 
   .tradingview-list-container {
     width: 960px;
- 
     margin: 0 auto;
     background-color: #907100; /* Match the widget's background */
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    top: 8vh;
+    top: 5vh;
   }
   
   .tradingview-ticker-container {
-    height:250px;
+    height:75px;
+    width: 100%;
+    position: fixed;
+    top: 0vh;
+    left: 0%;
   }
 
   .blue-text {

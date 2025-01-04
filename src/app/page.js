@@ -3,8 +3,10 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import '../styles/home.css';
-import TradingViewList from '../components/TradingViewList'; 
+// import TradingViewList from '../components/TradingViewList'; 
 import TradingViewTicker from '@/components/TradingViewTicker';
+import 'animate.css';
+
 
 export default function HomePage() {
   useEffect(() => {
@@ -19,23 +21,31 @@ export default function HomePage() {
   }, []);
 
   return (
-    // 1) Add the "background-homepage" class here
     <main className="background-homepage">
-      <h1 className='coinsight-header'>CoinSight</h1>
+      <div className="landing-logo-container animate__animated animate__flipInX">
+        <img 
+          src="/images/landing_logo.png" 
+          alt="Landing Logo" 
+          className="landing-logo"
+        />
+      </div>
 
-      <div className='home-ticker'>
+      <div className="home-ticker">
         <TradingViewTicker />
       </div>
 
-      <div>
+      <div className='landing-buttons'>
         <Link href="/dashboard">
-          <button>Go to Dashboard</button>
+          <button className='dash-btn animate__animated animate__flipInX'>Dashboard</button>
+        </Link>
+        <Link href="/">
+          <button className='learn-btn animate__animated animate__flipInX'>Learn More</button>
         </Link>
       </div>
 
-      <div className='home-list'>
+      <div className="home-list">
         {/* Render the TradingViewList Component */}
-        <TradingViewList />
+        {/* <TradingViewList /> */}
       </div>
     </main>
   );
