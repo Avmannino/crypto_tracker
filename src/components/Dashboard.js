@@ -1,15 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import './styles/dashboard.css';
 import Navbar from './Navbar';
 import VerticalButtonStack from './Navbar';
-import TradingViewWidget from './TradingViewChart';
+// import TradingViewWidget from './TradingViewChart';
+import MiniChartWidget from './MiniChartWidget';
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [cryptoData, setCryptoData] = useState({});
-  const [selectedItem, setSelectedItem] = useState('BTC'); // Default to 'BTC'
+  const [selectedItem, setSelectedItem] = useState('BTC'); 
   const [isListOpen, setIsListOpen] = useState(true);
 
   const items = [
@@ -126,7 +128,9 @@ export default function Dashboard() {
 
   return (
     <main className="dashboard-page">
-      <img src="/images/cryptbulllogo.png" alt="Dashboard Logo" className="dashboard-logo" />
+      <Link href="/">
+      <img src="/images/dashlogo.png" alt="Dashboard Logo" className="dashboard-logo" />
+      </Link>
       <input
         type="text"
         placeholder="🔍 Search for an asset"
@@ -162,7 +166,8 @@ export default function Dashboard() {
           </div>
           <div className="holdings-summary">
             <h2>Holdings Summary</h2>
-            <TradingViewWidget symbol={coinIdMapping[selectedItem]} />
+            {/* <TradingViewWidget symbol={coinIdMapping[selectedItem]} /> */}
+            <MiniChartWidget symbol={coinIdMapping[selectedItem]} />
           </div>
         </section>
       </div>

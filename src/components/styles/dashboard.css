@@ -20,9 +20,9 @@
 
 .dashboard-logo {
   position: absolute;
-  top: -1.5%;
-  left: 0%;
-  width: 210px;
+  top: 7%;
+  left: 1.7%;
+  width: 150px;
   height: auto;
 }
 
@@ -55,21 +55,21 @@
 }
 
 .toggle-button {
-  position: fixed;
-  top: 9vh;
-  left: 12vw;
+  position:fixed ;
+  top: 7.5vh;
+  left: 11vw;
   background-color: #ffffff00;
-  color: #b19e43;
+  color: #c68f1f;
   padding: 3px 3px;
-  border: 1px solid #b19e43;
+  border: 1px solid #c68f1f;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .toggle-button:hover {
-  background-color: #b19e43;
+  background-color: #c68f1f;
   color: black;
 }
 
@@ -121,7 +121,7 @@
   text-align: center;
   position: relative;
   scrollbar-width:auto; 
-  scrollbar-color: #ffd500 #1a1a1a; 
+  scrollbar-color: #c68f1f #1a1a1a; 
   animation: loopScroll 40s linear infinite; 
 }
 @keyframes loopScroll {
@@ -144,7 +144,7 @@
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb {
-  background: #b19e43;
+  background: #c68f1f;
   border-radius: 4px;
 }
 
@@ -165,7 +165,7 @@
 
 .horizontal-scroll .price-box:hover {
   transform: translateY(-6px);
-  box-shadow: 0 3px 6px #f0d85a;
+  box-shadow: 0 3px 6px #c68f1f;
 }
 
 .coin-label {
@@ -174,7 +174,7 @@
   font-size: 90%;
   font-weight: bolder;
   padding: 0px;
-  color: #c0ac49;
+  color: #c68f1f;
 }
 
 .crypto-price {
@@ -270,7 +270,7 @@
   width: 25%;
   height: 25%;
   align-self: center;
-  border: 1px solid #b19e43;
+  border: 1px solid #c68f1f;
   border-radius: 22px;
   position: relative;
   top: 10%;
@@ -320,13 +320,13 @@
 }
 
 .chart-placeholder {
-  width: 35%;
-  height: 450px;
+  width: 15%;
+  height: 300px;
   padding: 16px;
   border-radius: 12px;
   color: #483389;
   font-weight: bold;
-  border: 1px solid #b19e43;
+  border: 1px solid #c68f1f;
   background-color: #1a1a1a00;
   position: absolute;
   top: 15vh;
@@ -348,7 +348,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 30%;
+  top: 35%;
   left: 3.3%;
   gap: 55px;
 }
@@ -361,7 +361,7 @@ button:hover {
   text-decoration: none;
   font-size: 1rem;
   color: #ffffffbc;
-  border: 2px solid #b19e43;
+  border: 2px solid #c68f1f;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -376,7 +376,7 @@ button:hover {
 
 .stacked-button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 3px 6px #b19e43;
+  box-shadow: 0 3px 6px #c68f1f;
   color: #ffffff;
 }
 

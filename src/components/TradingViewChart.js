@@ -31,8 +31,8 @@ function TradingViewWidget({ symbol = "BINANCE:BTCUSDT" }) {
 
     // Widget configuration
     script.innerHTML = JSON.stringify({
-      width: "29%",
-      height: "630",
+      width: "32%",
+      height: "430",
       symbol: symbol,
       interval: "3",
       timezone: "America/New_York",
@@ -54,7 +54,7 @@ function TradingViewWidget({ symbol = "BINANCE:BTCUSDT" }) {
     }
 
     return () => {
-     
+
       window.onerror = originalOnError;
 
       if (container.current) {
