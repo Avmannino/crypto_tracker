@@ -155,17 +155,19 @@ export default function Dashboard() {
 
       <div className="dashboard-layout">
         <section className="dashboard-content">
+          <div className='transactions-container'>
+            <h4>TRANSACTIONS</h4>
+          </div>
           <div className="balance-info">
-            <p className="current-balance">Balance: $</p>
+            <p className="current-balance">BALANCE</p>
             <hr className="styled-line-break" />
-            <div className="monthly-recap">
-              <p className="today">24h</p>
-              <p className="week">7d</p>
-              <p className="month">30d</p>
-            </div>
+          </div>
+          <div className='todays-change'>
+            <h4>CHANGE</h4>
+            <hr className="styled-line-break" />
           </div>
           <div className="holdings-summary">
-            <h2>Holdings Summary</h2>
+            <h2></h2>
             {/* <TradingViewWidget symbol={coinIdMapping[selectedItem]} /> */}
             <MiniChartWidget symbol={coinIdMapping[selectedItem]} />
           </div>

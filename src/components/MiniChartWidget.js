@@ -56,14 +56,6 @@ const MiniChartWidget = ({ symbol = "BINANCE:BTCUSDT" }) => {
   return (
     <div className="tradingview-minichart-container">
       <div className="tradingview-minichart__widget" ref={container}></div>
-      <div className="tradingview-minichart-copyright">
-        <a
-          href="https://www.tradingview.com/"
-          rel="noopener nofollow"
-          target="_blank"
-        >
-        </a>
-      </div>
     </div>
   );
 };

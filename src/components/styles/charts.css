@@ -27,17 +27,17 @@
 
   .tradingview-minichart-container {
     position: absolute;
-    top: 38vh;
-    right: 1vw;
-    width: 30.5%; 
-    height: 350px;
+    top: 22.5vh;
+    left: 0.4vw;
+    width: 43.5%; 
+    height: 475px;
     margin: 0 auto; 
     padding: 10px; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
     border-radius: 22px; 
-    box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.314);
+    box-shadow: 12px 8px 8px rgba(0, 0, 0, 0.314);
   }
 
   .tradingview-minichart__widget {
