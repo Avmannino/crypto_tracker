@@ -1,22 +1,39 @@
+:root {
+  --base-font-size: 16px;
+  --font-scale: 1;
+  --spacing-scale: 1;
+}
+
+@media (min-width: 1080px) and (max-width: 1439px) {
+  :root {
+    --font-scale: 1.2;
+    --spacing-scale: 1.1;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --font-scale: 1.5;
+    --spacing-scale: 1.3;
+  }
+}
+
+body {
+  font-size: calc(var(--base-font-size) * var(--font-scale));
+  margin: 0;
+  padding: 0;
+}
+
 main {
   position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
-  overflow: hidden; 
+  /* padding: calc(2rem * var(--spacing-scale)); */
+  overflow: hidden;
   font-family: 'Tableau', sans-serif;
   background-color: black;
 }
-
-@font-face {
-  font-family: 'Switzer'; 
-  src: url('/fonts/Switzer.otf') format('opentype'); 
-  font-weight: normal; /
-  font-style: normal; 
-}
-
-
 
 .background-homepage {
   background: url('/images/landing_background.png') no-repeat;
@@ -24,8 +41,6 @@ main {
   background-position: center;
   min-height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .background-screen {
@@ -35,125 +50,105 @@ main {
   position: fixed;
 }
 
-.home-ticker {
-  position: relative;
-  bottom: 2vh;
-  right: 2.5vw;
-}
-
-
 .landing-logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 17%;
-  margin-right: 52%;
-  animation-delay: .1s;
+  margin-top: calc(12% * var(--spacing-scale));
+  margin-right: calc(37% * var(--spacing-scale));
 }
 
 .landing-logo {
-  width: 350px;
-  height: auto; 
+  width: calc(350px * var(--spacing-scale));
+  height: auto;
 }
 
-
-.home-list {
+.home-ticker {
   position: relative;
-  top: 4vh;
+  bottom: calc(2vh * var(--spacing-scale));
+  right: calc(2.5vw * var(--spacing-scale));
 }
-
 
 h1 {
-  font-size: 3rem;
+  font-size: calc(3rem * var(--font-scale));
   color: #ffffff;
   text-align: center;
-  margin-bottom: -10vh;
+  margin-bottom: calc(-10vh * var(--spacing-scale));
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: calc(1.25rem * var(--font-scale));
   color: #ffffff;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: calc(2rem * var(--spacing-scale));
 }
 
-.learn-btn {
-  background-color: #007bff00;
-  color: #c68f1f;
-  padding: 8px 10px;
-  font-size: 0.9rem;
-  font-family: Switzer;
-  border: 2px solid white;
-  border-radius: 5px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  transition: all 0.2s;
-  position: fixed;
-  top: 49%;
-  left: 18%;
-  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.314);
-  animation-delay: .3s
-}
-
-
-.learn-btn:hover {
-  background-color: #f8b582;
-  color: black;
-  transform: scale(1.1);
-  border: none;
-  box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.314);
-}
-
+.learn-btn,
 .dash-btn {
   background-color: #007bff00;
   color: #c68f1f;
-  padding: 8px 10px;
-  font-size: 0.9rem;
+  padding: calc(8px * var(--spacing-scale)) calc(10px * var(--spacing-scale));
+  font-size: calc(0.9rem * var(--font-scale));
   font-family: Switzer;
   border: 2px solid white;
-  border-radius: 5px;
+  border-radius: calc(5px * var(--spacing-scale));
   cursor: pointer;
   display: block;
   margin: 0 auto;
   transition: all 0.2s;
-  position: fixed;
-  top: 49%;
-  left: 25%;
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.314);
-  animation-delay: .6s
 }
 
-
-.dash-btn:hover {
-  background-color: #f8b582;
-  color: black;
-  transform: scale(1.1);
-  border: none;
-  box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.314);
-}
-
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
+/* For 1080p Screens (1920x1080) */
+@media (min-width: 1920px) and (max-height: 1080px) {
+  .learn-btn {
+    position: fixed;
+    top: 49%; 
+    left: 18%; 
+    
   }
 
-  p {
-    font-size: 1rem;
+  .dash-btn {
+    position: fixed;
+    top: 49%;
+    left: 26.5%; 
+  
   }
 
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  button {
-    font-size: 1rem;
+  .learn-btn:hover, .dash-btn:hover{
+    color: #c2c2c2;
+    border: 2px solid #c68f1f;
+    box-shadow: 0px 5px 10px rgba(195, 195, 195, 0.314);
   }
 }
 
+/* For 1440p Screens (2560x1440) */
+@media (min-width: 2560px) and (max-height: 1440px) {
+  
+  .landing-logo {
+    width: calc(450px * var(--spacing-scale));
+    height: auto;
+  }
 
-@font-face {
-  font-family: 'Tableau';
-  src: url('/fonts/Tableau.ttf') format('truetype');
+  .learn-btn {
+    position: fixed;
+    top: 45%; 
+    left: 19%;
+    transform: none; 
+    font-size: 26px;
+  }
+
+  .dash-btn {
+    position: fixed;
+    top: 45%;
+    left: 26.5%;
+    transform: none; 
+    font-size: 26px;
+  }
+
+  .learn-btn:hover, .dash-btn:hover{
+    color: #c2c2c2;
+    border: 2px solid #c68f1f;
+    box-shadow: 0px 5px 10px rgba(195, 195, 195, 0.314);
+  }
 }
